@@ -132,10 +132,10 @@ namespace OOP
             var random = new Random();
             double grade = Math.Min(4.0, Math.Round((studyHours / 10.0) + random.NextDouble(), 1)); // Simple formula
             examResults[examName] = grade;
-            Console.WriteLine($"{Name} {examName} exam result: {grade:F1}");
+            Console.WriteLine($"{Name} {examName} exam result: {grade:F1} - Exam results: {(this.IsPassingGrade(grade) ? "PASSED" : "FAILED")}");
         }
 
-        // Impelemnt IGradeable
+        // Implement IGradeable
         public double CalculatedGPA()
         {
             return GPA; // Use existing GPA property
@@ -268,6 +268,7 @@ namespace OOP
             var random = new Random();
             var grade = Math.Round(random.NextDouble() * 4.0, 1);
             AddGrade(courseName, grade);
+            Console.WriteLine($"{Name} {courseName} exam result: {grade:F1} - Exam results: {(this.IsPassingGrade(grade) ? "PASSED" : "FAILED")}");
         }
 
         /// <summary>
