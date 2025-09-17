@@ -35,24 +35,28 @@ class Program
             Console.WriteLine("===========================");
             Console.WriteLine(person1.Greet());
             Console.WriteLine(person2.Greet());
+            Console.WriteLine(person3.Greet());
 
             // Test birthday celebration
             Console.WriteLine("\n4. Celebrating birthdays:");
             Console.WriteLine("=========================");
             person1.CelebrateBirthday();
             person2.CelebrateBirthday();
+            person3.CelebrateBirthday();
 
             // Test adult status
             Console.WriteLine("\n5. Checking adult status:");
             Console.WriteLine("=========================");
             Console.WriteLine($"{person1.Name} is adult: {person1.IsAdult}");
             Console.WriteLine($"{person2.Name} is adult: {person2.IsAdult}");
+            Console.WriteLine($"{person3.Name} is adult: {person3.IsAdult}");
 
             // Test ToString override
             Console.WriteLine("\n6. Testing ToString override:");
             Console.WriteLine("=============================");
             Console.WriteLine(person1.ToString());
             Console.WriteLine(person2.ToString());
+            Console.WriteLine(person3.ToString());
 
             // Test equality
             Console.WriteLine("\n7. Testing equality:");
