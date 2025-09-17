@@ -8,10 +8,10 @@ namespace OOP
     /// </summary>
     public interface ILearnable
     {
-        void Learn(string skill);
+        void Learn(string skill, int hours);
         bool HasLearned(string skill);
         List<string> GetLearnedSkills();
 
-        int learningHours { get; set; }
+        int LearningHours { get; set; }
     }
 }

@@ -7,7 +7,7 @@ namespace OOP
     /// </summary>
     public interface IExaminable
     {
-        void TakeExam(string examName);
+        void PrepareForExam(string examName, int studyHours);
         Dictionary<string, double> GetExamResults();
         bool HasPassed(string examName, double passingGrade = 2.0);
     }

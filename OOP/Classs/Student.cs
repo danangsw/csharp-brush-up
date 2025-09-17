@@ -1,5 +1,7 @@
 using System;
 using System.Collections.Generic;
+using System.Data.Common;
+using System.Diagnostics;
 using System.Linq;
 
 namespace OOP
@@ -8,13 +10,34 @@ namespace OOP
     /// Student class that inherits from Person
     /// Demonstrates inheritance, method overriding, and additional properties
     /// </summary>
-    public class Student : Person
+    public class Student : Person, ILearnable, IExaminable, IGradeable
     {
         // Additional fields specific to Student
         private string studentId = string.Empty;
         private string major = string.Empty;
         private List<string> courses = new List<string>();
         private Dictionary<string, double> grades = new Dictionary<string, double>();
+
+        private List<string> learnedSkills = new List<string>();
+        private int learningHours = 0;
+        private Dictionary<string, double> examResults = new Dictionary<string, double>();
+
+        public int LearningHours
+        {
+            get { return learningHours; }
+            set { learningHours = Math.Max(0, value); } // Ensure non-negative
+        }
+
+        public string PerformanceLevel
+        {
+            get
+            {
+                if (GPA >= 3.5) return "Excellent";
+                if (GPA >= 3.0) return "Good";
+                if (GPA >= 2.0) return "Average";
+                return "Poor";
+            }
+        }
 
         // Additional properties
         public string StudentId
@@ -56,6 +79,71 @@ namespace OOP
         {
             StudentId = "STU000";
             Major = "Undeclared";
+        }
+
+        // ILearnable implementation
+        public void Learn(string skill, int hours)
+        {
+            if (string.IsNullOrWhiteSpace(skill))
+                throw new ArgumentException("Skill cannot be empty", nameof(skill));
+            if (!HasLearned(skill))
+            {
+                learnedSkills.Add(skill);
+                LearningHours += hours; // Assume each skill takes 1 hour to learn
+                Console.WriteLine($"{Name} has learned a new skill: {skill}");
+            }
+            else
+            {
+                Console.WriteLine($"{Name} already learned the skill: {skill}");
+            }
+        }
+
+        public List<string> GetLearnedSkills()
+        {
+            return new List<string>(learnedSkills); // Return a copy to maintain encapsulation
+        }
+
+        public bool HasLearned(string skill)
+        {
+            return learnedSkills.Contains(skill);
+        }
+
+        // IEXaminable implementation
+        public Dictionary<string, double> GetExamResults()
+        {
+            // Return a copy to maintain encapsulation
+            return new Dictionary<string, double>(examResults);
+        }
+
+        public bool HasPassed(string examName, double passingGrade = 2.0)
+        {
+            return examResults.TryGetValue(examName, out double grade) && grade >= passingGrade;
+        }
+
+        public void PrepareForExam(string examName, int studyHours)
+        {
+            if (string.IsNullOrWhiteSpace(examName))
+                throw new ArgumentException("Exam name cannot be empty", nameof(examName));
+            if (studyHours < 0)
+                throw new ArgumentException("Study hours cannot be negative", nameof(studyHours));
+            LearningHours += studyHours;
+            Console.WriteLine($"{Name} prepared for {examName} with {studyHours} hours of study,\nTotal learning hours now {LearningHours}.");
+            // Simulate exam result based on study hours
+            var random = new Random();
+            double grade = Math.Min(4.0, Math.Round((studyHours / 10.0) + random.NextDouble(), 1)); // Simple formula
+            examResults[examName] = grade;
+            Console.WriteLine($"{Name} {examName} exam result: {grade:F1}");
+        }
+
+        // Impelemnt IGradeable
+        public double CalculatedGPA()
+        {
+            return GPA; // Use existing GPA property
+        }
+
+        public bool IsPassingGrade(double grade)
+        {
+            return grade >= 2.0; // D or better
         }
 
         // Method overrides

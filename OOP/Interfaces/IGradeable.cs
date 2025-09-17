@@ -9,6 +9,6 @@ namespace OOP
         double CalculatedGPA();
         bool IsPassingGrade(double grade);
 
-        string performanceLevel { get; }
+        string PerformanceLevel { get; }
     }
 }
