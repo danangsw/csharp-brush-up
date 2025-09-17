@@ -1,0 +1,17 @@
+using System;
+using System.Runtime.CompilerServices;
+
+namespace OOP
+{
+    /// <summary>
+    /// Interface defining learnable behavior
+    /// </summary>
+    public interface ILearnable
+    {
+        void Learn(string skill);
+        bool HasLearned(string skill);
+        List<string> GetLearnedSkills();
+
+        int learningHours { get; set; }
+    }
+}
