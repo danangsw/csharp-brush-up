@@ -1,6 +1,6 @@
 using System;
 
-namespace OOP
+namespace CSharpBrushUp.Library.OOP
 {
     /// <summary>
     /// Interface defining examinable behavior

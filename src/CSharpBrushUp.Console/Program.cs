@@ -1,5 +1,5 @@
 ﻿using System;
-using OOP;
+using CSharpBrushUp.Library.Demo;
 
 class Program
 {

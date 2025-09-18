@@ -1,7 +1,7 @@
 using System;
 using System.Collections.Generic;
 
-namespace OOP
+namespace CSharpBrushUp.Library.OOP
 {
     /// <summary>
     /// Employee class that inherits from Person

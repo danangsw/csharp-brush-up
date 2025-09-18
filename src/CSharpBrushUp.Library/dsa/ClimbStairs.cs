@@ -1,5 +1,6 @@
 using System;
-namespace DSA
+
+namespace CSharpBrushUp.Library.DSA
 {
     public class ClimbStairs
     {

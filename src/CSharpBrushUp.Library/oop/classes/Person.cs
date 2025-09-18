@@ -1,6 +1,6 @@
 using System;
 
-namespace OOP
+namespace CSharpBrushUp.Library.OOP
 {
     /// <summary>
     /// Represents a Person with basic properties and behaviors

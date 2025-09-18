@@ -1,4 +1,6 @@
-namespace OOP
+using CSharpBrushUp.Library.OOP;
+
+namespace CSharpBrushUp.Library.Demo
 {
     public class PersonDemo
     {

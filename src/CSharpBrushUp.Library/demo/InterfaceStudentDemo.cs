@@ -1,8 +1,9 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using CSharpBrushUp.Library.OOP;
 
-namespace OOP
+namespace CSharpBrushUp.Library.Demo
 {
     /// <summary>
     /// Comprehensive demonstration of Interface implementations in Student class

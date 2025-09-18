@@ -1,4 +1,7 @@
-namespace OOP
+using CSharpBrushUp.Library.OOP;
+using System;
+
+namespace CSharpBrushUp.Library.Demo
 {
     public class InheritanceDemo
     {

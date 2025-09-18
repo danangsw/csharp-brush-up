@@ -4,7 +4,7 @@ using System.Data.Common;
 using System.Diagnostics;
 using System.Linq;
 
-namespace OOP
+namespace CSharpBrushUp.Library.OOP
 {
     /// <summary>
     /// Student class that inherits from Person
