@@ -333,7 +333,7 @@ namespace DSA.Testing
         private bool VerifyFibonacciRelation(int n, int result)
         {
             if (n <= 2) return result == n;
-            
+
             int prev1 = _climbStairs.Solution1(n - 1);
             int prev2 = _climbStairs.Solution1(n - 2);
             return result == prev1 + prev2;
